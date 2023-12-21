@@ -1,0 +1,56 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <style>              
+            </style>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Toys Manager</title>
+            <!-- Add your CSS links here -->
+           <link rel="stylesheet" href="/css/admin.css">
+            <!-- Add any other stylesheets -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        </head>
+        <body>
+            <div class="grid-container">
+                <!-- Header -->
+                <header class="header">
+                    <div class="header-left">
+                        <p>Toys Manager</p>
+                        <form action="" method="get">
+                            <input class="input" name="key" type="text" placeholder="Search..." />
+                        </form>
+                    </div>
+                    <div class="header-right">
+                        <div id="app">
+                                <div class="container">
+                                    <!-- Your Navbar content -->
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+                <!-- End Header -->
+
+                <!-- Sidebar -->
+                <aside id="sidebar">
+                    <div class="sidebar-title">
+                    </div>
+                    <ul class="sidebar-list">
+                        <li class="sidebar-list-item"><a href="/admin">Dashboard</a></li>
+                        <li class="sidebar-list-item"><a href="/product">Product</a></li>
+                        <li class="sidebar-list-item"><a href="/category">Category</a></li>
+                        <li class="sidebar-list-item"><a href="">Authorization </a></li>
+                    </ul>
+                </aside>
+                <!-- End Sidebar -->
+
+                <!-- Main -->
+                <div class="main-content">
+               {{{body}}}
+                </div>
+                <!-- End Main -->
+            </div>
+        </body>
+        </html>

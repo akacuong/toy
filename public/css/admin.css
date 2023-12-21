@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4; /* Light gray background */
+    font-family: 'Arial', sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: "header header" "sidebar main";
+    height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    height: 60px;
+    background-color: #3498db; /* Blue color */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(52, 152, 219, 0.5); /* Blue shadow */
+    border-bottom: 2px solid #2980b9; /* Darker blue border */
+}
+
+.header p {
+    color: #fff; /* White text */
+    font-size: 22px; /* Larger font size */
+    margin: 0; /* Remove default margin */
+    padding-right: 100px ;
+    padding-left: 50px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left p {
+    margin-right: auto; /* Move 'Toys Manager' to the left and keep it all to the right */
+}
+
+.header-left form {
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.button {
+    background-color: #2980b9; /* Darker blue button */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#sidebar {
+    grid-area: sidebar;
+    height: 100%;
+    background-color: #3498db; /* Blue color */
+    color: #fff; /* White text */
+    overflow-y: auto;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.sidebar-list {
+    padding: 0px;
+    list-style: none;
+
+}
+
+.sidebar-list-item {
+    padding: 15px;
+    transition: background-color 0.3s;
+}
+
+.sidebar-list-item a {
+    text-decoration: none;
+    color: #fff; /* White text */
+    font-size: 18px; /* Adjusted font size */
+}
+
+.sidebar-list-item:hover {
+    background-color: #262bc0; /* Darker blue hover */
+}
+.sidebar-list-item a:hover {
+    color:#e12121;
+    text-decoration: none;
+}
+.main-content {
+    background-color: #fff; /* Lighter background color */
+    padding: 20px;
+    color:black;
+}
+
+/* Additional styles for the dashboard */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border-radius: 10px;
+    background-color: #fff; /* White card background */
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.total1,
+.total2,
+.total3,
+.total4 {
+    border-radius: 10px;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+table td a{
+    color:black;
+    text-decoration: none;
+}
+

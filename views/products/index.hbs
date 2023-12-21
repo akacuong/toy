@@ -1,0 +1,33 @@
+<!-- products/index.hbs or products/index.ejs, depending on your template engine -->
+<a class="btn btn-info" href="/product/add">Add new product</a>
+<a class="btn btn-danger" href="/product/deleteall" onclick="return confirm('Are you sure to delete all product ?');">Delete all</a>
+<br><br>
+<table class="table">
+  <tr>
+    <th>Product name</th>
+    <th>Price</th>
+    <th>Category</th>
+    <th>Image</th>
+    <th>Action</th>
+  </tr>
+  {{#each products }}
+  <tr>
+    <td>
+      <a href="/product/detail/{{ _id }}">
+        {{ name }}
+      </a>
+    </td>
+    <td>{{ price }}$</td>
+    <td>{{ category.name }}</td> <!-- Ensure you are using category.name -->
+     <td>
+         <img src="{{ image }}" alt="" width="100" height="100">
+      </td>
+    <td>
+      <a class="btn btn-warning" href="/product/edit/{{ _id }}">Edit</a>
+      <a class="btn btn-danger" href="/product/delete/{{ _id }}"
+        onclick="return confirm('Are you sure to delete this product ?');"
+      >Delete</a>
+    </td>
+  </tr>
+  {{/each}}
+</table>
