@@ -7,6 +7,10 @@ const indexRouter = require('./routes/index');
 const userRouter = require('./routes/users');
 var productRouter=require('./routes/product');
 var categoryRouter=require('./routes/category');
+var hbs = require('hbs');
+hbs.registerHelper('dateFormat', require('handlebars-dateformat')); 
+var hbs = require('hbs');
+hbs.registerHelper('equal', require('handlebars-helper-equal'))
 var app = express();
 //set jquery
 // 2. config 'mongoose' module

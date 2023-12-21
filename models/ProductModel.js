@@ -13,6 +13,12 @@ var ProductSchema = mongoose.Schema({
   image: {
     type: String,
   },
+  color:{
+    type:String,
+  },
+  date:{
+    type:Date,
+  },
   category: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'categories'

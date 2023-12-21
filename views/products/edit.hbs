@@ -19,6 +19,16 @@
             <label for="image" class="form-label">Image URL:</label>
             <input type="url" class="form-control" name="image" id="image" value="{{ product.image }}" required>
         </div>
+          Mobile color:
+   <input type="radio" name="color" value="Black"> Black
+   <input type="radio" name="color" value="White"> White
+   <input type="radio" name="color" value="Yellow"> Yellow
+   <input type="radio" name="color" value="Blue"> Blue
+            <div class="mb-3">
+            <label for="date" class="form-label">Date:</label>
+            <input type="text" class="form-control" name="date" id="date"value="{{ product.date}}">
+            </div>
+            <div class="mb-3">
         <div class="mb-3">
         <label for="category" class="form-label">Category:</label>
         <select class="form-select" name="category" id="category" required>
