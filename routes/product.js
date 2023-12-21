@@ -48,4 +48,17 @@ router.get('/deleteall', async (req, res) => {
   console.log('Delete all category succeed !');
   res.redirect('/product');
 })
+router.get('/:productId', async (req, res) => {
+  try {
+    const productId = req.params.productId;
+    const product = await ProductModel.findById(productId).populate('category');
+    if (!product) {
+      return res.status(404).send('Product not found');
+    }
+    res.render('customer/detail', { product });
+  } catch (error) {
+    console.error('Error fetching product details:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 module.exports = router;
