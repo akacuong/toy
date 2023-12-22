@@ -5,12 +5,16 @@ var cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/users');
-var productRouter=require('./routes/product');
-var categoryRouter=require('./routes/category');
+var productRouter = require('./routes/product');
+var categoryRouter = require('./routes/category');
 var hbs = require('hbs');
-hbs.registerHelper('dateFormat', require('handlebars-dateformat')); 
-var hbs = require('hbs');
-hbs.registerHelper('equal', require('handlebars-helper-equal'))
+hbs.registerHelper('dateFormat', require('handlebars-dateformat'));
+const exphbs = require('express-handlebars');
+const handlebarsHelpers = require('handlebars-helpers');
+const Handlebars = require('handlebars');
+Handlebars.registerHelper('equal', function (a, b, options) {
+    return a === b ? options.fn(this) : options.inverse(this);
+});
 var app = express();
 //set jquery
 // 2. config 'mongoose' module
@@ -20,11 +24,14 @@ mongoose.set('strictQuery', true); //ignore mongoose warning
 mongoose.connect(uri)
   .then(() => console.log('ok'))
   .catch((err) => console.log(err));
-  var bodyParser = require('body-parser');
-  app.use(bodyParser.urlencoded({ extended: false }));  
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+const helpers = handlebarsHelpers();
+const hbsInstance = exphbs.create({ helpers });
+app.engine('handlebars', hbsInstance.engine);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -49,5 +56,5 @@ app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.render('error');
 });
-app.listen(process.env.PORT||3001);
+app.listen(process.env.PORT || 3001);
 module.exports = app;

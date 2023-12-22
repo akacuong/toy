@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var moment = require('moment-timezone');
 var ProductSchema = mongoose.Schema({
   name: {
     type: String,
@@ -16,8 +17,9 @@ var ProductSchema = mongoose.Schema({
   color:{
     type:String,
   },
-  date:{
-    type:Date,
+  date: {
+    type: Date,
+    default: () => moment().tz('Asia/Ho_Chi_Minh').format(), // Use arrow function to execute it at runtime
   },
   category: {
     type: mongoose.Schema.Types.ObjectId,

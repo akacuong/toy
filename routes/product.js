@@ -2,10 +2,15 @@ var express = require('express');
 var router = express.Router();
 var ProductModel = require('../models/ProductModel');
 var CategoryModel = require('../models/CategoryModel');
+const moment = require('moment');
 router.get('/', async (req, res) => {
   try {
     var products = await ProductModel.find({}).populate('category');
-    res.render('products/index', { layout: 'layoutadmin', products });
+    const formattedProducts = products.map(product => ({
+      ...product.toObject(),  // Adding toObject() to convert Mongoose document to plain object
+      date: moment(product.date).format('MMMM DD, YYYY HH:mm:ss')
+    }));
+    res.render('products/index', { layout: 'layoutadmin', products: formattedProducts });
   } catch (error) {
     console.error('Error fetching products:', error);
     res.status(500).send('Internal Server Error');
